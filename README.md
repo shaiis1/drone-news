@@ -1,5 +1,5 @@
 # drone-news
-a drone news app, using newsAPI, NestJS and React
+a drone news app, using newsAPI, NestJS and React, jest for unit test
 
 # run `npm i` to install node modules for client and server
 # run `npm run start` to start server running
