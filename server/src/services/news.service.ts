@@ -66,7 +66,7 @@ export class NewsService {
             }));
 
             // Use the $or operator to find documents that match any of the conditions
-            const articles = await this.newsModel.find({ $or: searchConditions }).exec();
+            const articles = await this.newsModel.find({ $or: searchConditions }).sort({ publishedAt: -1 }).exec();
             console.log('Done findNews');
             return articles
         } catch(error){
@@ -78,7 +78,7 @@ export class NewsService {
     async findAll(): Promise<{results: News[], count: number}> {
         console.log('Start findAll');
         try{
-            const articles = await this.newsModel.find().exec();
+            const articles = await this.newsModel.find().sort({ publishedAt: -1 }).exec();
             console.log('Done findAll');
             return { results: articles, count: articles.length };
         } catch(error){
