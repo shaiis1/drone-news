@@ -9,16 +9,16 @@ export class NewsController {
 
     @Get()
     async getNews(@Query() query: GetNewsDto) {
-        return this.newsService.findNews(query.q)
+        return await this.newsService.findNews(query.q)
     }
 
     @Get('getAll')
-    getAll() {
-       return this.newsService.findAll();
+    async getAll() {
+       return await this.newsService.findAll();
     }
 
     @Get('author/:name')
     async getAuthorInfo(@Param('name') name: string): Promise<string> {
-        return this.wikipediaService.findAuthorInfo(name);
+        return await this.wikipediaService.findAuthorInfo(name);
     }
 }
